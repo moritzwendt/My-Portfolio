@@ -176,35 +176,40 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 // EmailJS ###############
+// EmailJS Initialisierung
 (function () {
     emailjs.init("-FGnRHyKguim-btDt");
 })();
 
-const contactForm = document.getElementById('contactForm');
-const successMessage = document.getElementById('success-message');
+document.addEventListener("DOMContentLoaded", function () {
 
-contactForm.addEventListener('submit', function (event) {
-    event.preventDefault();
+    const contactForm = document.getElementById("contactForm");
 
-    const formData = {
-        to_name: "Admin",
-        from_name: document.getElementById('name').value,
-        from_email: document.getElementById('email').value,
-        subject: document.getElementById('subject').value,
-        message: document.getElementById('message').value,
-        reply_to: document.getElementById('email').value 
-    };
+    if (!contactForm) return;
 
-    emailjs.send('service_gbcu138', 'template_m76o0ua', formData).then(function (response) {
+    contactForm.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-        // successMessage.classList.remove('hidden');
+        const formData = {
+            to_name: "Moritz",
+            from_name: document.getElementById("name").value,
+            from_email: document.getElementById("email").value,
+            message: document.getElementById("message").value,
+            reply_to: document.getElementById("email").value
+        };
 
-        // contactForm.reset();
+        emailjs
+            .send("service_gbcu138", "template_m76o0ua", formData)
+            .then(function () {
 
-        // setTimeout(() => {
-        //     successMessage.classList.add('hidden');
-        // }, 5000);
-    }).catch(function (error) {
-        alert('Failed to send message. Please try again.');
+                contactForm.reset();
+
+                alert("Nachricht erfolgreich gesendet!");
+
+            })
+            .catch(function (error) {
+                console.error("EmailJS Fehler:", error);
+                alert("Fehler beim Senden. Bitte erneut versuchen.");
+            });
     });
 });
