@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 });
-// EmailJS ###############
+// ###############
 // EmailJS Initialisierung
 (function () {
     emailjs.init("-FGnRHyKguim-btDt");
@@ -184,26 +184,31 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener("DOMContentLoaded", function () {
 
     const contactForm = document.getElementById("contactForm");
-
     if (!contactForm) return;
 
     contactForm.addEventListener("submit", function (event) {
         event.preventDefault();
 
+        const nameInput = document.getElementById("name").value.trim();
+        const emailInput = document.getElementById("email").value.trim();
+        const messageInput = document.getElementById("message").value.trim();
+
         const formData = {
             to_name: "Moritz",
-            from_name: document.getElementById("name").value,
-            from_email: document.getElementById("email").value,
-            message: document.getElementById("message").value,
-            reply_to: document.getElementById("email").value
+            from_name: nameInput,
+            from_email: emailInput,
+            subject: "Neue Kontaktanfrage über dein Portfolio",
+            message: messageInput,
+            reply_to: emailInput
         };
+
+        console.log("Gesendete Daten:", formData); // Debug
 
         emailjs
             .send("service_gbcu138", "template_m76o0ua", formData)
             .then(function () {
 
                 contactForm.reset();
-
                 alert("Nachricht erfolgreich gesendet!");
 
             })
