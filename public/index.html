@@ -259,6 +259,19 @@
                             -webkit-font-smoothing: antialiased;
                             -moz-osx-font-smoothing: grayscale;
                         }
+                        .cube-shadow {
+                            width: 120px;
+                            height: 120px;
+                            background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.15) 40%, transparent 70%);
+                            border-radius: 50%;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, 120px);
+                            animation: cubeShadow 24s linear infinite;
+                            filter: blur(8px);
+                            z-index: -1;
+                        }
                         @keyframes cubeRotateFloat {
                             0% { transform: translate3d(0, 0px, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
                             12.5% { transform: translate3d(0, -8px, 0) rotateX(45deg) rotateY(45deg) rotateZ(0deg); }
@@ -269,6 +282,44 @@
                             75% { transform: translate3d(0, -8px, 0) rotateX(270deg) rotateY(270deg) rotateZ(180deg); }
                             87.5% { transform: translate3d(0, -4px, 0) rotateX(315deg) rotateY(315deg) rotateZ(270deg); }
                             100% { transform: translate3d(0, 0px, 0) rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
+                        }
+                        @keyframes cubeShadow {
+                            0% { 
+                                transform: translate(-50%, 120px) scale(1);
+                                opacity: 0.6;
+                            }
+                            12.5% { 
+                                transform: translate(-50%, 120px) scale(0.95);
+                                opacity: 0.55;
+                            }
+                            25% { 
+                                transform: translate(-50%, 120px) scale(0.9);
+                                opacity: 0.5;
+                            }
+                            37.5% { 
+                                transform: translate(-50%, 120px) scale(0.85);
+                                opacity: 0.45;
+                            }
+                            50% { 
+                                transform: translate(-50%, 120px) scale(0.85);
+                                opacity: 0.45;
+                            }
+                            62.5% { 
+                                transform: translate(-50%, 120px) scale(0.9);
+                                opacity: 0.5;
+                            }
+                            75% { 
+                                transform: translate(-50%, 120px) scale(0.95);
+                                opacity: 0.55;
+                            }
+                            87.5% { 
+                                transform: translate(-50%, 120px) scale(0.98);
+                                opacity: 0.58;
+                            }
+                            100% { 
+                                transform: translate(-50%, 120px) scale(1);
+                                opacity: 0.6;
+                            }
                         }
                     </style>
                 </div>
@@ -281,38 +332,50 @@
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Meine Kenntnisse</h2>
                 <p class="text-xl text-gray-600 dark:text-gray-400 text-center mb-16">Technologien und Tools, die ich für die Umsetzung von Projekten nutze.</p>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-white dark:bg-dark-background p-8 rounded-2xl">
+                    <div class="bg-white dark:bg-dark-background p-8 rounded-2xl shadow-lg">
                         <div class="w-16 h-16 bg-red-500/10 rounded-full flex items-center justify-center mb-6">
                             <i class="fa-brands fa-html5 text-red-500 text-3xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-4">HTML5</h3>
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-xl font-bold">HTML5</h3>
+                            <span class="text-sm font-semibold text-gray-600 dark:text-gray-400">100%</span>
+                        </div>
                         <div class="w-full h-2 bg-gray-200 dark:bg-dark-background rounded-full overflow-hidden">
                             <div class="w-[100%] h-full bg-gradient-to-r from-primary to-secondary rounded-full"></div>
                         </div>
                     </div>
-                    <div class="bg-white dark:bg-dark-background p-8 rounded-2xl">
+                    <div class="bg-white dark:bg-dark-background p-8 rounded-2xl shadow-lg">
                         <div class="w-16 h-16 bg-blue-500/10 rounded-full flex items-center justify-center mb-6">
                             <i class="fa-brands fa-css3 text-blue-500 text-3xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-4">CSS3</h3>
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-xl font-bold">CSS3</h3>
+                            <span class="text-sm font-semibold text-gray-600 dark:text-gray-400">100%</span>
+                        </div>
                         <div class="w-full h-2 bg-gray-200 dark:bg-dark-background rounded-full overflow-hidden">
                             <div class="w-[100%] h-full bg-gradient-to-r from-primary to-secondary rounded-full"></div>
                         </div>
                     </div>
-                    <div class="bg-white dark:bg-dark-background p-8 rounded-2xl">
+                    <div class="bg-white dark:bg-dark-background p-8 rounded-2xl shadow-lg">
                         <div class="w-16 h-16 bg-yellow-500/10 rounded-full flex items-center justify-center mb-6">
                             <i class="fa-brands fa-js text-yellow-500 text-3xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-4">JavaScript</h3>
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-xl font-bold">JavaScript</h3>
+                            <span class="text-sm font-semibold text-gray-600 dark:text-gray-400">90%</span>
+                        </div>
                         <div class="w-full h-2 bg-gray-200 dark:bg-dark-background rounded-full overflow-hidden">
                             <div class="w-[90%] h-full bg-gradient-to-r from-primary to-secondary rounded-full"></div>
                         </div>
                     </div>
                     <div class="bg-white dark:bg-dark-background p-8 rounded-2xl shadow-lg">
-                        <div class="w-16 h-16 bg-blue-400/10 rounded-full flex items-center justify-center mb-6">
-                            <i class="fa-brands fa-react text-blue-400 text-3xl"></i>
+                        <div class="w-16 h-16 bg-green-600/10 rounded-full flex items-center justify-center mb-6">
+                            <i class="fa-brands fa-node-js text-green-600 text-3xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-4">React</h3>
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-xl font-bold">Node.js</h3>
+                            <span class="text-sm font-semibold text-gray-600 dark:text-gray-400">70%</span>
+                        </div>
                         <div class="w-full h-2 bg-gray-200 dark:bg-dark-background rounded-full overflow-hidden">
                             <div class="w-[70%] h-full bg-gradient-to-r from-primary to-secondary rounded-full"></div>
                         </div>
@@ -321,18 +384,60 @@
                         <div class="w-16 h-16 bg-orange-500/10 rounded-full flex items-center justify-center mb-6">
                             <i class="fa-brands fa-git-alt text-orange-500 text-3xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-4">Git</h3>
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-xl font-bold">Git</h3>
+                            <span class="text-sm font-semibold text-gray-600 dark:text-gray-400">85%</span>
+                        </div>
                         <div class="w-full h-2 bg-gray-200 dark:bg-dark-background rounded-full overflow-hidden">
                             <div class="w-[85%] h-full bg-gradient-to-r from-primary to-secondary rounded-full"></div>
                         </div>
                     </div>
                     <div class="bg-white dark:bg-dark-background p-8 rounded-2xl shadow-lg">
                         <div class="w-16 h-16 bg-purple-500/10 rounded-full flex items-center justify-center mb-6">
-                            <i class="fa-solid fa-desktop text-purple-500 text-3xl"></i>
+                            <i class="fa-brands fa-figma text-purple-500 text-3xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-4">Responsives Design</h3>
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-xl font-bold">Figma</h3>
+                            <span class="text-sm font-semibold text-gray-600 dark:text-gray-400">100%</span>
+                        </div>
                         <div class="w-full h-2 bg-gray-200 dark:bg-dark-background rounded-full overflow-hidden">
                             <div class="w-[100%] h-full bg-gradient-to-r from-primary to-secondary rounded-full"></div>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-dark-background p-8 rounded-2xl shadow-lg">
+                        <div class="w-16 h-16 bg-blue-500/10 rounded-full flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-wind text-cyan-500 text-3xl"></i>
+                        </div>
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-xl font-bold">Tailwind CSS</h3>
+                            <span class="text-sm font-semibold text-gray-600 dark:text-gray-400">95%</span>
+                        </div>
+                        <div class="w-full h-2 bg-gray-200 dark:bg-dark-background rounded-full overflow-hidden">
+                            <div class="w-[95%] h-full bg-gradient-to-r from-primary to-secondary rounded-full"></div>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-dark-background p-8 rounded-2xl shadow-lg">
+                        <div class="w-16 h-16 bg-orange-500/10 rounded-full flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-cubes text-orange-500 text-3xl"></i>
+                        </div>
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-xl font-bold">Blender</h3>
+                            <span class="text-sm font-semibold text-gray-600 dark:text-gray-400">85%</span>
+                        </div>
+                        <div class="w-full h-2 bg-gray-200 dark:bg-dark-background rounded-full overflow-hidden">
+                            <div class="w-[85%] h-full bg-gradient-to-r from-primary to-secondary rounded-full"></div>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-dark-background p-8 rounded-2xl shadow-lg">
+                        <div class="w-16 h-16 bg-green-500/10 rounded-full flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-map text-green-500 text-3xl"></i>
+                        </div>
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-xl font-bold">CodeWalker</h3>
+                            <span class="text-sm font-semibold text-gray-600 dark:text-gray-400">80%</span>
+                        </div>
+                        <div class="w-full h-2 bg-gray-200 dark:bg-dark-background rounded-full overflow-hidden">
+                            <div class="w-[80%] h-full bg-gradient-to-r from-primary to-secondary rounded-full"></div>
                         </div>
                     </div>
                 </div>
