@@ -60,19 +60,3 @@ Contributions are welcome! If you have suggestions for improvements or find any 
 3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4.  Push to the Branch (`git push origin feature/AmazingFeature`)
 5.  Open a Pull Request
-
-## License 📜
-
-This project is not currently under any specified license.
-
----
-
-*(Note: If a license is intended, please add a `LICENSE` file to the repository and update this section accordingly.)*
-
----
-
-<p align="center">
-  <a href="https://readmeforge.app?utm_source=badge">
-    <img src="https://readmeforge.app/badge.svg" alt="Made with ReadmeForge" height="20">
-  </a>
-</p>
